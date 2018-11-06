@@ -1565,12 +1565,12 @@ security(const char *str)
 static void
 exec_with_sh(const char *prog, char **argv, char **envp)
 {
-    *argv = (char *)prog;
-    *--argv = (char *)"sh";
-    if (envp)
-        execve("/bin/sh", argv, envp); /* async-signal-safe */
-    else
-        execv("/bin/sh", argv); /* async-signal-safe (since SUSv4) */
+//    *argv = (char *)prog;
+//    *--argv = (char *)"sh";
+//    if (envp)
+//        execve("/bin/sh", argv, envp); /* async-signal-safe */
+//    else
+//        execv("/bin/sh", argv); /* async-signal-safe (since SUSv4) */
 }
 
 #else
@@ -4366,15 +4366,16 @@ struct spawn_args {
 static VALUE
 do_spawn_process(VALUE arg)
 {
-    struct spawn_args *argp = (struct spawn_args *)arg;
-    rb_execarg_parent_start1(argp->execarg);
-    return (VALUE)rb_spawn_process(DATA_PTR(argp->execarg),
-				   argp->errmsg.ptr, argp->errmsg.buflen);
+//    struct spawn_args *argp = (struct spawn_args *)arg;
+//    rb_execarg_parent_start1(argp->execarg);
+//    return (VALUE)rb_spawn_process(DATA_PTR(argp->execarg),
+//				   argp->errmsg.ptr, argp->errmsg.buflen);
 }
 
 static rb_pid_t
 rb_execarg_spawn(VALUE execarg_obj, char *errmsg, size_t errmsg_buflen)
 {
+	return -1;
     struct spawn_args args;
     struct rb_execarg *eargp = rb_execarg_get(execarg_obj);
 

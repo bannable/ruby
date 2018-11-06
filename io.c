@@ -9002,22 +9002,23 @@ argf_readlines(int argc, VALUE *argv, VALUE argf)
 static VALUE
 rb_f_backquote(VALUE obj, VALUE str)
 {
-    VALUE port;
-    VALUE result;
-    rb_io_t *fptr;
+	return Qnil;
+    //VALUE port;
+    //VALUE result;
+    //rb_io_t *fptr;
 
-    SafeStringValue(str);
-    rb_last_status_clear();
-    port = pipe_open_s(str, "r", FMODE_READABLE|DEFAULT_TEXTMODE, NULL);
-    if (NIL_P(port)) return rb_str_new(0,0);
+    //SafeStringValue(str);
+    //rb_last_status_clear();
+    //port = pipe_open_s(str, "r", FMODE_READABLE|DEFAULT_TEXTMODE, NULL);
+    //if (NIL_P(port)) return rb_str_new(0,0);
 
-    GetOpenFile(port, fptr);
-    result = read_all(fptr, remain_size(fptr), Qnil);
-    rb_io_close(port);
-    rb_io_fptr_finalize(fptr);
-    rb_gc_force_recycle(port); /* also guards from premature GC */
+    //GetOpenFile(port, fptr);
+    //result = read_all(fptr, remain_size(fptr), Qnil);
+    //rb_io_close(port);
+    //rb_io_fptr_finalize(fptr);
+    //rb_gc_force_recycle(port); /* also guards from premature GC */
 
-    return result;
+    //return result;
 }
 
 #ifdef HAVE_SYS_SELECT_H
