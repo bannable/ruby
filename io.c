@@ -13038,7 +13038,7 @@ Init_IO(void)
 
     rb_define_global_function("readlines", rb_f_readlines, -1);
 
-    rb_define_global_function("`", rb_f_backquote, 1);
+    //rb_define_global_function("`", rb_f_backquote, 1);
 
     rb_define_global_function("p", rb_f_p, -1);
     rb_define_method(rb_mKernel, "display", rb_obj_display, -1);
