@@ -39,6 +39,9 @@ main(int argc, char **argv)
     {
 	RUBY_INIT_STACK;
 	ruby_init();
+#ifdef __AFL_HAVE_MANUAL_CONTROL
+	__AFL_INIT();
+#endif
 	return ruby_run_node(ruby_options(argc, argv));
     }
 }
